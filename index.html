@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#b91c1c">
+<meta name="description" content="تعلم الإسبانية من الصفر بالعربية والدارجة المغربية مجاناً">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Español Fácil | الإسبانية بسهولة</title>
+<style>
+:root{--red:#b91c1c;--red2:#ef4444;--ink:#1f2937;--muted:#64748b;--bg:#f8fafc;--card:#fff;--line:#e2e8f0;--green:#15803d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.65}
+header{background:linear-gradient(135deg,#991b1b,#dc2626);color:white;padding:22px 18px 25px;border-radius:0 0 25px 25px}
+.top{max-width:850px;margin:auto}.brand{font-size:13px;opacity:.9;letter-spacing:.4px}.hero{font-size:27px;font-weight:850;margin:5px 0}.sub{opacity:.93;font-size:14px}.progress-wrap{margin-top:18px;background:#ffffff35;border-radius:30px;height:9px;overflow:hidden}.progress{height:100%;width:0;background:#fde68a;border-radius:30px;transition:.25s}
+main{max-width:850px;margin:auto;padding:15px 14px 90px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:-7px}.stat,.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:14px;box-shadow:0 3px 12px #0f172a08}.stat{text-align:center}.stat strong{display:block;font-size:21px;color:var(--red)}.stat span{font-size:12px;color:var(--muted)}
+nav{display:flex;gap:8px;overflow:auto;padding:15px 0 10px;scrollbar-width:none}nav button{white-space:nowrap;border:1px solid var(--line);background:white;color:var(--ink);padding:9px 14px;border-radius:25px;font:inherit;font-size:13px}nav button.active{background:var(--red);color:white;border-color:var(--red)}
+h2{font-size:20px;margin:13px 2px}h3{font-size:16px;margin:0 0 8px}.muted{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.lesson{display:flex;gap:12px;align-items:center;cursor:pointer}.lesson .emoji{font-size:25px;background:#fff1f2;border-radius:13px;padding:10px}.lesson p{margin:2px 0}.tag{display:inline-block;background:#fef2f2;color:#991b1b;border-radius:20px;padding:2px 9px;font-size:11px}
+button.primary,.action{border:0;background:var(--red);color:white;border-radius:12px;padding:11px 15px;font:inherit;font-weight:700;cursor:pointer}.action.secondary{background:#fff1f2;color:#991b1b}.action:disabled{opacity:.5}
+.word{display:grid;grid-template-columns:1fr auto;gap:5px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.word:last-child{border:0}.es{font-size:19px;font-weight:800;direction:ltr;text-align:right}.pron{font-size:12px;color:var(--muted)}.speak{border:1px solid var(--line);background:white;border-radius:50%;width:38px;height:38px;font-size:17px}
+.question{padding:14px 0;border-bottom:1px solid var(--line)}.options{display:grid;gap:7px;margin-top:9px}.opt{border:1px solid var(--line);background:white;border-radius:11px;padding:10px;text-align:right;font:inherit;cursor:pointer}.opt.chosen{border-color:var(--red);background:#fff1f2}.opt.good{border-color:#16a34a;background:#f0fdf4}.opt.bad{border-color:#dc2626;background:#fef2f2}
+.notice{background:#fffbeb;border:1px solid #fde68a;border-radius:13px;padding:12px;font-size:13px}.hidden{display:none!important}.bottom{position:fixed;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:9px 14px calc(9px + env(safe-area-inset-bottom));text-align:center;font-size:11px;color:var(--muted)}
+input{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;font:inherit;margin:8px 0}.pill{display:inline-block;padding:5px 10px;border-radius:20px;background:#f1f5f9;font-size:12px;margin:3px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:25px 0}
+@media(min-width:650px){header{padding:30px 24px}.hero{font-size:34px}main{padding-left:22px;padding-right:22px}}
+</style>
+</head>
+<body>
+<header><div class="top">
+<div class="brand">🇪🇸 ESPAÑOL FÁCIL</div>
+<div class="hero">الإسبانية خطوة بخطوة</div>
+<div class="sub">تعلم من الصفر بالعربية والدارجة المغربية — مجاناً</div>
+<div class="progress-wrap"><div class="progress" id="bar"></div></div>
+<div class="sub" id="progressText">بدا رحلتك اليوم!</div>
+</div></header>
+<main>
+<section class="stats">
+<div class="stat"><strong id="doneCount">0</strong><span>دروس مكتملة</span></div>
+<div class="stat"><strong id="wordCount">0</strong><span>كلمات محفوظة</span></div>
+<div class="stat"><strong id="scoreCount">0</strong><span>نقاط الاختبارات</span></div>
+</section>
+<nav id="tabs">
+<button class="active" data-tab="home">الرئيسية</button><button data-tab="lessons">الدروس</button><button data-tab="words">الكلمات</button><button data-tab="quiz">اختبر نفسك</button><button data-tab="plan">الخطة</button>
+</nav>
+<section id="home">
+<h2>مرحبا بك! 👋</h2>
+<div class="card">
+<h3>أول خطوة: قول Hola!</h3>
+<p>كل نهار تعلم شوية، وراجع اللي قريتي. الاستمرارية أهم من السرعة.</p>
+<button class="primary" onclick="openLesson(0)">ابدأ الدرس الأول</button>
+</div>
+<h2>مسارك التعليمي</h2>
+<div class="grid">
+<div class="card"><span class="tag">A1 · البداية</span><h3>الأساسيات</h3><p class="muted">الحروف، التحيات، التعارف، الأرقام والجمل السهلة.</p></div>
+<div class="card"><span class="tag">A2 · مبتدئ متقدم</span><h3>الحياة اليومية</h3><p class="muted">العائلة، الطعام، التسوق، الوقت والسفر.</p></div>
+<div class="card"><span class="tag">B1 · متوسط</span><h3>التواصل</h3><p class="muted">تحكي على التجارب، الخطط والآراء ديالك.</p></div>
+<div class="card"><span class="tag">B2 · فوق المتوسط</span><h3>استعمال مستقل</h3><p class="muted">النقاش، القراءة وفهم مواضيع متنوعة.</p></div>
+</div>
+</section>
+<section id="lessons" class="hidden"><h2>الدروس</h2><div id="lessonList" class="grid"></div><div id="lessonView" class="card hidden" style="margin-top:12px"></div></section>
+<section id="words" class="hidden"><h2>قاموس صغير</h2><p class="muted">قلب على الكلمة، واضغط على 🔊 باش تسمع النطق (إلا كان الصوت الإسباني متوفر فالهاتف).</p><input id="searchWord" placeholder="ابحث بالإسبانية أو العربية..." oninput="renderWords()"><div class="card" id="wordList"></div></section>
+<section id="quiz" class="hidden"><h2>اختبار قصير</h2><div class="card"><p class="muted">اختار الجواب الصحيح. من بعد اضغط على التصحيح.</p><div id="quizQuestions"></div><button class="primary" onclick="checkQuiz()">صحّح الأجوبة</button><p id="quizResult" aria-live="polite"></p></div></section>
+<section id="plan" class="hidden"><h2>الخطة ديالك</h2><div class="card"><h3>برنامج يومي: 30–45 دقيقة</h3><p>🟠 10 دقايق كلمات جديدة</p><p>🟠 10 دقايق استماع وتكرار</p><p>🟠 10 دقايق قواعد وأمثلة</p><p>🟠 5–15 دقيقة تمارين ومراجعة</p></div><h2>المراحل</h2><div class="card"><p><b>الشهر 1:</b> A1 — النطق والتحيات والجمل البسيطة.</p><p><b>الشهر 2:</b> A1 — الضمائر والأفعال الأساسية.</p><p><b>الشهر 3–4:</b> A2 — المواقف اليومية.</p><p><b>الشهر 5–6:</b> B1 — المحادثة والقراءة والكتابة.</p><p><b>الشهر 7–9:</b> B2 — النقاش والفهم المستقل.</p><div class="notice">المدة تقريبية وكتختلف حسب وقت الممارسة والتدريب.</div></div></section>
+<footer>Español Fácil · مجاني للتعلم الشخصي · التقدم محفوظ على نفس الجهاز</footer>
+</main>
+<div class="bottom">تعلم كل نهار ولو 15 دقيقة 🇪🇸</div>
+<script>
+const lessons=[
+{title:"التحيات والتعارف",level:"A1",icon:"👋",intro:"فهاد الدرس غادي تتعلم تسلّم وتعرّف براسك.",words:[["Hola","مرحباً","أولا"],["Buenos días","صباح الخير","بوينوس دياس"],["Buenas tardes","مساء الخير","بويناس تارديس"],["Buenas noches","مساء الخير / تصبح على خير","بويناس نوتشيس"],["Adiós","وداعاً","أديوس"],["Gracias","شكراً","غراسياس"],["Por favor","من فضلك","بور فابور"],["Sí","نعم","سي"],["No","لا","نو"],["Hasta luego","إلى اللقاء","أستا لويغو"]],sentences:[["Me llamo Sara.","اسمي سارة."],["Soy de Marruecos.","أنا من المغرب."],["Estoy bien, gracias.","أنا بخير، شكراً."],["¿Cómo estás?","كيف حالك؟"]],rule:"Me llamo + الاسم = سميتي... / Soy de + البلد = أنا من..."},
+{title:"الحروف والنطق",level:"A1",icon:"🔤",intro:"الإسبانية كتكتب من اليسار لليمين. هادي أهم ملاحظات النطق.",words:[["A","أ"],["E","إي قصيرة"],["I","إي"],["O","أو"],["U","أو"],["H","لا تُنطق غالباً"],["J","خ"],["Ñ","ني"],["LL","ي غالباً"],["CH","تش"]],sentences:[["Hola","H لا تُنطق: أولا"],["España","إسبانيا"],["José","خوسيه"]],rule:"الحركات A E I O U عندها نطق ثابت تقريباً، وH صامتة غالباً."},
+{title:"الأرقام من 1 إلى 10",level:"A1",icon:"🔢",intro:"تعلم الأرقام الأساسية واستعملها فالعمر والأثمنة.",words:[["Uno","واحد","أونو"],["Dos","جوج","دوس"],["Tres","ثلاثة","تريس"],["Cuatro","أربعة","كواترو"],["Cinco","خمسة","ثينكو"],["Seis","ستة","سايس"],["Siete","سبعة","سييتي"],["Ocho","ثمانية","أوتشو"],["Nueve","تسعة","نويبي"],["Diez","عشرة","دييث"]],sentences:[["Tengo diez años.","عمري عشر سنوات (مثال)."],["Número cinco.","الرقم خمسة."]],rule:"Tengo + عدد + años كتستعمل باش تقول العمر."},
+{title:"التعارف والأسئلة",level:"A1",icon:"💬",intro:"كيفاش تسول على الاسم والبلد والحال.",words:[["¿Cómo?","كيف؟","كومو"],["¿Qué?","ماذا؟","كي"],["¿De dónde?","من أين؟","دي دوندي"],["¿Quién?","من؟","كيين"],["¿Dónde?","أين؟","دوندي"]],sentences:[["¿Cómo te llamas?","شنو سميتك؟"],["¿De dónde eres?","منين نتا؟"],["Me llamo Adam.","سميتي آدم."],["Soy de Marruecos.","أنا من المغرب."]],rule:"فالإسبانية كنستعملو ¿ فبداية السؤال و؟ فالنهاية."}
+];
+let state=JSON.parse(localStorage.getItem("ef_state")||'{"done":[],"saved":[],"score":0}');
+const vocab=lessons.flatMap((l,i)=>l.words.map(w=>({es:w[0],ar:w[1],pron:w[2]||"",lesson:i})));
+function save(){localStorage.setItem("ef_state",JSON.stringify(state));updateStats()}
+function updateStats(){document.getElementById("doneCount").textContent=state.done.length;document.getElementById("wordCount").textContent=state.saved.length;document.getElementById("scoreCount").textContent=state.score;let p=Math.round(state.done.length/lessons.length*100);document.getElementById("bar").style.width=p+"%";document.getElementById("progressText").textContent=p?`كملتي ${p}% من الدروس المتاحة حالياً`:"بدا رحلتك اليوم!"}
+function showTab(t){document.querySelectorAll("main>section").forEach(s=>s.classList.add("hidden"));document.getElementById(t).classList.remove("hidden");document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.tab===t));if(t==="lessons")renderLessons();if(t==="words")renderWords();if(t==="quiz")renderQuiz()}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+function renderLessons(){document.getElementById("lessonList").innerHTML=lessons.map((l,i)=>`<div class="card lesson" onclick="openLesson(${i})"><div class="emoji">${l.icon}</div><div><span class="tag">${l.level}</span><p><b>${l.title}</b></p><p class="muted">${state.done.includes(i)?"✓ مكتمل":"اضغط باش تبدا"}</p></div></div>`).join("")}
+function openLesson(i){showTab("lessons");let l=lessons[i],v=document.getElementById("lessonView");v.classList.remove("hidden");v.innerHTML=`<span class="tag">${l.level}</span><h2>${l.icon} ${l.title}</h2><p>${l.intro}</p><h3>الكلمات</h3>${l.words.map(w=>`<div class="word"><div><div class="es">${w[0]}</div><div>${w[1]} <span class="pron">${w[2]||""}</span></div></div><button class="speak" onclick="speak('${w[0].replace(/'/g,"")}')">🔊</button></div>`).join("")}<h3 style="margin-top:15px">جمل مفيدة</h3>${l.sentences.map(s=>`<div class="word"><div><div class="es">${s[0]}</div><div>${s[1]}</div></div><button class="speak" onclick="speak('${s[0].replace(/[?¿.]/g,"").replace(/'/g,"")}')">🔊</button></div>`).join("")}<div class="notice" style="margin-top:12px"><b>القاعدة:</b> ${l.rule}</div><button class="primary" style="margin-top:14px" onclick="markDone(${i})">${state.done.includes(i)?"الدرس مكتمل ✓":"علّم الدرس كمكتمل"}</button><button class="action secondary" style="margin:8px" onclick="saveLessonWords(${i})">حفظ كلمات الدرس</button>`;v.scrollIntoView({behavior:"smooth",block:"start"})}
+function markDone(i){if(!state.done.includes(i))state.done.push(i);save();renderLessons();openLesson(i)}
+function saveLessonWords(i){lessons[i].words.forEach(w=>{if(!state.saved.includes(w[0]))state.saved.push(w[0])});save();alert("تحفظات كلمات هاد الدرس للمراجعة!") }
+function speak(s){if(!("speechSynthesis"in window)){alert("خاصية النطق غير متوفرة فهاد المتصفح.");return}let u=new SpeechSynthesisUtterance(s);u.lang="es-ES";u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}
+function renderWords(){let q=(document.getElementById("searchWord").value||"").toLowerCase();let list=vocab.filter(w=>(w.es+" "+w.ar).toLowerCase().includes(q));document.getElementById("wordList").innerHTML=list.map(w=>`<div class="word"><div><div class="es">${w.es}</div><div>${w.ar} <span class="pron">${w.pron}</span></div></div><button class="speak" onclick="speak('${w.es.replace(/'/g,"")}')">🔊</button></div>`).join("")||"ما لقينا حتى كلمة."}
+const qs=[["ما معنى Hola؟",["شكراً","مرحباً","وداعاً"],1],["كيف تقول شكراً؟",["Gracias","Adiós","Sí"],0],["ما معنى Me llamo Sara؟",["أنا بخير","أنا من إسبانيا","اسمي سارة"],2],["كيف تقول نعم؟",["No","Por favor","Sí"],2],["أي حرف لا يُنطق غالباً؟",["J","H","Ñ"],1]];
+function renderQuiz(){document.getElementById("quizQuestions").innerHTML=qs.map((q,i)=>`<div class="question"><b>${i+1}. ${q[0]}</b><div class="options">${q[1].map((o,j)=>`<button class="opt" data-q="${i}" data-a="${j}" onclick="choose(${i},${j},this)">${o}</button>`).join("")}</div></div>`).join("");document.getElementById("quizResult").textContent=""}
+let selected={};function choose(i,j,el){selected[i]=j;document.querySelectorAll(`[data-q="${i}"]`).forEach(b=>b.classList.remove("chosen"));el.classList.add("chosen")}
+function checkQuiz(){let score=0;qs.forEach((q,i)=>{document.querySelectorAll(`[data-q="${i}"]`).forEach(b=>{let a=+b.dataset.a;if(a===q[2])b.classList.add("good");else if(selected[i]===a)b.classList.add("bad")});if(selected[i]===q[2])score++});state.score+=score;save();document.getElementById("quizResult").textContent=`النتيجة: ${score} من ${qs.length}. ${score===qs.length?"ممتاز! برافو عليك.":"مزيان! راجع الدرس وعاود المحاولة."}`}
+updateStats();renderLessons();renderWords();
+if("serviceWorker"in navigator && location.protocol.startsWith("http"))window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+</script>
+</body></html>
